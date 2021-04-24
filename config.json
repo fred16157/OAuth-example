@@ -1,7 +1,7 @@
 {
     "google": {
-        "clientID": "YOUR_CLIENT_ID",
-        "clientSecret": "YOUR_CLIENT_SECRET",
+        "clientID": "990899010571-n9g3hmdtuobapmumvgfdfh60unh8c8gh.apps.googleusercontent.com",
+        "clientSecret": "uUtbGThIB-Q5cvNKZRjWs7FE",
         "callbackURL": "/oauth/google/callback"
     }
 }

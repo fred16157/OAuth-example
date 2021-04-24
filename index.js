@@ -12,7 +12,6 @@ app.use(session({
     secret: 'OAuth-Example',
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: true }
 }));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -26,8 +25,16 @@ passport.use(new GoogleStrategy({
     clientSecret: config.google.clientSecret,
     callbackURL: config.google.callbackURL,
 }, (accessToken, refreshToken, profile, callback) => {
-    callback(accessToken, refreshToken, profile);
+    callback(null, profile);
 }));
+
+passport.serializeUser((user, done) => { 
+    done(null, user);
+});
+
+passport.deserializeUser((obj, done) => {
+    done(null, obj);
+})
 
 app.use('/', require('./routes/index'));
 app.use('/oauth/', require('./routes/oauth'));

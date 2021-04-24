@@ -9,13 +9,20 @@
 </head>
 <body>
     <div id="center">
-        <% if(!session.user) { %>
+        <% if(!user) { %>
             <h3>OAuth 로그인</h3>
+            <% if(failed) { %>
+                <h6>로그인에 실패했습니다.</h6>
+            <% } %>
             <div id="links">
                 <a href="/oauth/google/">구글로 로그인</a>
             </div>
         <% } else { %>
-            <h3><%= session.user.name %>로 로그인됨</h3>    
+            <div id="profile">
+                <img src="<%= user.photos[0].value %>">
+                <h3><%= user.displayName %>로 로그인됨</h3> 
+                <a href="/oauth/logout">로그아웃</a>
+            </div>
         <% } %>
     </div>
 </body>
