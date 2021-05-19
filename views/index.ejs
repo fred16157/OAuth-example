@@ -21,6 +21,7 @@
             <div id="profile">
                 <img src="<%= user.photos[0].value %>">
                 <h3><%= user.displayName %>로 로그인됨</h3> 
+                <p><%= user.emails[0].value %></p>
                 <a href="/oauth/logout">로그아웃</a>
             </div>
         <% } %>
