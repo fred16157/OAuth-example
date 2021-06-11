@@ -7,7 +7,7 @@ const path = require('path');
 
 app.set('view engine', 'ejs');
 app.use(express.json());
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({ extended: false }));
 app.use(session({
     secret: 'OAuth-Example',
     resave: false,
@@ -28,13 +28,15 @@ passport.use(new GoogleStrategy({
     callback(null, profile);
 }));
 
-passport.serializeUser((user, done) => { 
+passport.serializeUser((user, done) => {
     done(null, user);
 });
 
 passport.deserializeUser((obj, done) => {
     done(null, obj);
 })
+
+//그냥 메모
 
 app.use('/', require('./routes/index'));
 app.use('/oauth/', require('./routes/oauth'));
